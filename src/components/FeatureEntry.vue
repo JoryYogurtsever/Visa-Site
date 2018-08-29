@@ -7,8 +7,8 @@
         <img class="thumbnail" :src="`/static/${image}`"
              :class="{obscure: isSelectedLeft || isSelectedMid || isSelectedRight}">
           <div class="info-panel" v-if="isSelectedLeft || isSelectedMid || isSelectedRight">
-            <div class="info-list"> <h4 id="poopySuprise"> {{ entry.Nation }} </h4>
-              <p class="SoSoPoopyToday"> {{ entry.text }}</p>
+            <div class="info-list"> <h4 id="nationTitle"> {{ entry.Nation }} </h4>
+              <p class="nationText"> {{ entry.text }}</p>
             </div>
           </div>
           <i class="fa fa-angle-double-right"></i>
@@ -31,33 +31,26 @@ export default {
   },
   props: ['entry', 'index', 'baseId'],
   methods: {
-    selector() {
+    selector () {
       if (this.index === 0) {
         this.isSelectedLeft = true;
-        // this.$emit('orderChanger');
-        console.log('Glorious Testicles!')
       } else if (this.index === 1) {
-        //this.flipper = 'left';
         this.isSelectedMid = true;
         document.getElementById(`${this.baseId}2`).setAttribute('class', 'leftyTighty');
-        console.log('Gently cascading Testicles!')
       } else if (this.index === 2) {
         this.isSelectedRight = true;
         document.getElementById(`${this.baseId}1`).setAttribute('class', 'middleTighty');
-        console.log('the nuturing warmth of Testicles!')
       }
     },
     deSelector() {
-     if (this.index === 1) {
-       //this.flipper = 'left';
-       //this.isSelectedMid = true;
-       document.getElementById(`${this.baseId}2`).removeAttribute('class');
-       document.getElementById(`${this.baseId}2`).setAttribute('class', 'feature-entry');
-     }
-     else if (this.index === 2) {
-       document.getElementById(`${this.baseId}1`).removeAttribute('class');
-       document.getElementById(`${this.baseId}1`).setAttribute('class', 'feature-entry');
-     }
+      if (this.index === 1) {
+        document.getElementById(`${this.baseId}2`).removeAttribute('class');
+        document.getElementById(`${this.baseId}2`).setAttribute('class', 'feature-entry');
+      }
+      else if (this.index === 2) {
+        document.getElementById(`${this.baseId}1`).removeAttribute('class');
+        document.getElementById(`${this.baseId}1`).setAttribute('class', 'feature-entry');
+      }
     }
   },
   created() {
@@ -69,7 +62,7 @@ export default {
 </script>
 
 <style>
-  #poopySuprise {
+  #nationTitle {
     font-size: 1.5em;
     padding-top: 4%;
     padding-bottom: 4%;
@@ -84,16 +77,11 @@ export default {
     float: left;
     padding-bottom: 1%;
     position: relative;
-   /* border: 2px solid black;*/
   }
   .onDisplayLeft {
-   /* opacity: 0.3;*/
     width: 66%;
-/*    position: absolute;
-    display: block;*/
   }
   .onDisplayMid {
-   /* opacity: 0.3;*/
     width: 66%;
     display: block;
   }
@@ -111,7 +99,6 @@ export default {
     padding-top: 18%;
     position: absolute;
     left: 0;
-    /*top: 322px;*/
   }
   .middleTighty {
     width: 33%;
@@ -124,47 +111,23 @@ export default {
   }
   .thumbnail {
     width: 100%;
-    /*height: 200px;*/
     transition: .5s ease;
     backface-visibility: hidden;
-   /* margin-left: 10%;*/
     border-radius: 20px;
   }
 
   .info-panel {
-   /* transition: .5s ease;*/
     opacity: 1;
     position: absolute;
     top: 6%;
- /*   transform: translate(-220%, -700%);
-    -ms-transform: translate(-50%, -50%);*/
     text-align: center;
     z-index: 4;
   }
-  .SoSoPoopyToday {
+  .nationText {
     padding: 10%;
   }
 
   .obscure {
     opacity: 0.3;
   }
-/*  .rightyTighty {
-    float: right;
-    width: 33%;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-bottom: 1%;
-    position: relative;
-    left: 0;
-  }
-  .rightyMighty {
-    /*float: right;
-    opacity: 0.3;
-    width: 66%;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-bottom: 1%;
-    position: relative;
-  }*/
-
 </style>

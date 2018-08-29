@@ -9,25 +9,27 @@
     and get an idea as to what it is we are intending to do. </div>
     <div class="nav-holder">
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(1)"> Africa </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(1)"> Africa </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(0)"> Asia </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(0)"> Asia </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(3)"> Caribbean </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(3)"> Caribbean </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(2)"> Europe </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(2)"> Europe </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(4)"> North-America </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(4)"> North-America </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(5)"> South-America </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(5)"> South-America </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(6)"> Oceania </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(6)"> Oceania </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
-      <div class="btn-holder"><button class="btn" @click="pooper(1)"> Alphabetical </button></div>
+      <div class="btn-holder"><button class="btn" @click="regionLoader(7)"> Alphabetical </button></div>
       <div class="hole-holder"><div class="hole"></div></div>
     </div>
+      <div v-if="alphaFlip"> This feature is not yet available </div>
     <div>
     <nationsList :region="Region" v-if="RegionClicked"></nationsList>
+      <display-nation :nation="activeNation" v-if="NationClicked"></display-nation>
     </div>
   </div>
 </template>
@@ -36,26 +38,45 @@
 import topHeader from './topHeader.vue'
 import heroImage from './HeroImage.vue'
 import nationsList from './NationsList.vue'
+import displayNation from './DisplayNation.vue'
+import {eventBus} from '../main.js'
 
 export default {
   data: () => {
     return {
       Region: [],
       RegionClicked: false,
+      NationClicked: false,
+      activeNation: [],
       nationsArray: [],
+      alphaFlip: false
     }
   },
   components: {
     topHeader,
     heroImage,
-    nationsList
+    nationsList,
+    displayNation
   },
   methods: {
-    pooper (x) {
-      this.Region = this.nationsArray[x];
-      this.RegionClicked = true;
-      console.log(this.Region, this.RegionClicked)
+    regionLoader (x) {
+      if (x === 7) {
+        this.alphaFlip = true;
+      } else {
+        this.Region = this.nationsArray[x];
+        this.RegionClicked = true;
+        console.log(this.Region, this.RegionClicked)
+      }
+      this.NationClicked = false;
     }
+  },
+  created () {
+    eventBus.$on('loadNationPage', (data, data2) => {
+      this.activeNation = [data2]
+      this.RegionClicked = false
+      this.NationClicked = true
+      console.log(data, data2)
+    })
   },
   mounted () {
     this.$http.get('https://vuejs-http-96a4b.firebaseio.com/Asia.json').then(response => {
