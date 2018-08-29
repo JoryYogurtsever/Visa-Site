@@ -5,6 +5,7 @@ import Teach from '../components/Teach'
 import DigitalNomad from '../components/DigitalNomad'
 import Search from '../components/Search'
 import Browse from '../components/Browse'
+import NationsList from '../components/NationsList'
 
 export const routes = [
   {
@@ -40,11 +41,11 @@ export const routes = [
   {
     path: '/Browse',
     name: 'Browse',
-    component: Browse,
-    children: [
+    component: Browse
+    /*children: [
       {
         path: '/',
-        component: ''
+        component:
       },
       {
         path: '/:id',
@@ -53,6 +54,6 @@ export const routes = [
       {
         path: ''
       }
-    ]
+    ]*/
   }
 ]
