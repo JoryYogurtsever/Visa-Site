@@ -26,36 +26,34 @@ export default {
       isSelectedMid: false,
       isSelectedRight: false,
       flipper: 'left',
-      something: this.baseId + this.index,
+      something: this.baseId + this.index
     }
   },
   props: ['entry', 'index', 'baseId'],
   methods: {
     selector () {
       if (this.index === 0) {
-        this.isSelectedLeft = true;
+        this.isSelectedLeft = true
       } else if (this.index === 1) {
-        this.isSelectedMid = true;
-        document.getElementById(`${this.baseId}2`).setAttribute('class', 'leftyTighty');
+        this.isSelectedMid = true
+        document.getElementById(`${this.baseId}2`).setAttribute('class', 'leftyTighty')
       } else if (this.index === 2) {
-        this.isSelectedRight = true;
-        document.getElementById(`${this.baseId}1`).setAttribute('class', 'middleTighty');
+        this.isSelectedRight = true
+        document.getElementById(`${this.baseId}1`).setAttribute('class', 'middleTighty')
       }
     },
-    deSelector() {
+    deSelector () {
       if (this.index === 1) {
-        document.getElementById(`${this.baseId}2`).removeAttribute('class');
-        document.getElementById(`${this.baseId}2`).setAttribute('class', 'feature-entry');
-      }
-      else if (this.index === 2) {
-        document.getElementById(`${this.baseId}1`).removeAttribute('class');
-        document.getElementById(`${this.baseId}1`).setAttribute('class', 'feature-entry');
+        document.getElementById(`${this.baseId}2`).removeAttribute('class')
+        document.getElementById(`${this.baseId}2`).setAttribute('class', 'feature-entry')
+      } else if (this.index === 2) {
+        document.getElementById(`${this.baseId}1`).removeAttribute('class')
+        document.getElementById(`${this.baseId}1`).setAttribute('class', 'feature-entry')
       }
     }
   },
-  created() {
-    this.image = this.entry.Image;
-    console.log(this.something);
+  created () {
+    this.image = this.entry.Image
   }
 }
 

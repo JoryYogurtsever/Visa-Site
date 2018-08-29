@@ -16,7 +16,7 @@ import {eventBus} from '../main.js'
 
 export default {
   props: ['region', 'nation', 'index'],
-  data() {
+  data () {
     return {
       selected: false,
       value: 0,
@@ -28,18 +28,18 @@ export default {
         'IMGP2951.jpg',
         'IMGP3051.jpg',
         'IMGP4038.jpg',
-        'IMGP4148.jpg',
+        'IMGP4148.jpg'
       ]
     }
   },
   methods: {
     loadNationPage () {
-      eventBus.$emit('loadNationPage', this.region, this.nation);
+      eventBus.$emit('loadNationPage', this.region, this.nation)
     }
   },
   created () {
-    this.value = this.imageArray[Math.floor(Math.random() * 8)];
-    console.log(this.value);
+    this.value = this.imageArray[Math.floor(Math.random() * 8)]
+    console.log(this.value)
   }
 }
 </script>

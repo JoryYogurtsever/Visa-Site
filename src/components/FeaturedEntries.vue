@@ -10,9 +10,9 @@
 <script>
 import featureEntry from './FeatureEntry'
 export default {
-  data() {
+  data () {
     return {
-      nations: [],
+      nations: []
     }
   },
   props: ['entry', 'id'],

@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <link rel="stylesheet" href = "http://meyerweb.com/eric/tools/css/reset/reset.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Playfair+Display|Roboto+Slab" rel="stylesheet">
-    <link rel = "stylesheet" href = "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css">
     <top-header></top-header>
     <top-navigation-panel></top-navigation-panel>
   </div>

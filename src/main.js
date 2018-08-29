@@ -14,7 +14,7 @@ const router = new Router({
   mode: 'history'
 })
 
-export const eventBus = new Vue();
+export const eventBus = new Vue()
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -22,4 +22,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-

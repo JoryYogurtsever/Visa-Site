@@ -61,13 +61,13 @@ export default {
   methods: {
     regionLoader (x) {
       if (x === 7) {
-        this.alphaFlip = true;
+        this.alphaFlip = true
       } else {
-        this.Region = this.nationsArray[x];
-        this.RegionClicked = true;
+        this.Region = this.nationsArray[x]
+        this.RegionClicked = true
         console.log(this.Region, this.RegionClicked)
       }
-      this.NationClicked = false;
+      this.NationClicked = false
     }
   },
   created () {
@@ -80,17 +80,17 @@ export default {
   },
   mounted () {
     this.$http.get('https://vuejs-http-96a4b.firebaseio.com/Asia.json').then(response => {
-      this.nationsArray.push(response.body);
+      this.nationsArray.push(response.body)
       this.$http.get('https://vuejs-http-96a4b.firebaseio.com/Africa.json').then(response => {
-        this.nationsArray.push(response.body);
+        this.nationsArray.push(response.body)
         this.$http.get('https://vuejs-http-96a4b.firebaseio.com/Europe.json').then(response => {
-          this.nationsArray.push(response.body);
+          this.nationsArray.push(response.body)
           this.$http.get('https://vuejs-http-96a4b.firebaseio.com/Caribbean.json').then(response => {
-            this.nationsArray.push(response.body);
+            this.nationsArray.push(response.body)
             this.$http.get('https://vuejs-http-96a4b.firebaseio.com/North America.json').then(response => {
-              this.nationsArray.push(response.body);
+              this.nationsArray.push(response.body)
               this.$http.get('https://vuejs-http-96a4b.firebaseio.com/South America.json').then(response => {
-                this.nationsArray.push(response.body);
+                this.nationsArray.push(response.body)
                 this.$http.get('https://vuejs-http-96a4b.firebaseio.com/Oceania.json').then(response => {
                   this.nationsArray.push(response.body)
                 })
