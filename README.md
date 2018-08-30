@@ -2,6 +2,18 @@
 
 > A consolidation of infomation on visas and extensions thereof for nations all around the world.
 
+# Technical Summary
+
+> Although this site does not have any content yet and is not complete. I wanted to use it  as a demonstration
+of using a router and navigating through and displaying different components, as well as using HTTP requests.
+This site has a lot of Javascript that could simulate some of the problems one might address making a larger-scale
+website.
+
+# General Summary
+
+> The premise of this website is to consolidate information on long-term visa availability for different nations
+around the world and take some of the frustration out of the bureaucratic side of living an ex-pat or remote lifestyle.
+
 ## Build Setup
 
 ``` bash
